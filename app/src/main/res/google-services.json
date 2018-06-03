@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "243321035312",
+    "firebase_url": "https://pantirmark3.firebaseio.com",
+    "project_id": "pantirmark3",
+    "storage_bucket": "pantirmark3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243321035312:android:b58ad1b1a345ab60",
+        "android_client_info": {
+          "package_name": "pantriapp.russellmcdonald.com.pantirmark3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243321035312-vd390a3p4nab3ficpufogigvehap3ov3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pantriapp.russellmcdonald.com.pantirmark3",
+            "certificate_hash": "0b6ac5454d36253be56dddb35b2ed67c56d66933"
+          }
+        },
+        {
+          "client_id": "243321035312-6115qvgutbuvi7egvsr8bldtik2cep6a.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "243321035312-6115qvgutbuvi7egvsr8bldtik2cep6a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAySJa5G8Rys4XxRphWK7H7LapNWdHORwY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243321035312-6115qvgutbuvi7egvsr8bldtik2cep6a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

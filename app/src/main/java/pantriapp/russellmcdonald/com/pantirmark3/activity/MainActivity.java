@@ -1,20 +1,22 @@
 package pantriapp.russellmcdonald.com.pantirmark3.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
+
 
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import pantriapp.russellmcdonald.com.pantirmark3.ProtoAdapter;
-import pantriapp.russellmcdonald.com.pantirmark3.ProtoRecipe;
-import pantriapp.russellmcdonald.com.pantirmark3.R;
+import pantriapp.russellmcdonald.com.pantirmark3.*;
 import pantriapp.russellmcdonald.com.pantirmark3.adapter.RecipeAdapter;
 import pantriapp.russellmcdonald.com.pantirmark3.model.Recipe;
 import pantriapp.russellmcdonald.com.pantirmark3.network.OutService;
@@ -23,42 +25,71 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private RecipeAdapter adapter;
+
+
+
+    String ingredients = "";
+
+    OutService service =  RetrofitInstance.getClient().create(OutService.class);
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button getRecipes = findViewById(R.id.get_recipe);
+        final EditText userInput = findViewById(R.id.user_input);
 
-        OutService service =  RetrofitInstance.getClient().create(OutService.class);
 
-        Call<ArrayList<Recipe>> call = service.getRcpSuggestions("jmatuRL9NWmshUs6mTAMdHvR0KQIp1XRQyOjsnLs7dwSK1FRJu");
 
-        call.enqueue(new Callback<ArrayList<Recipe>>(){
-            @Override
-            public void onResponse(Call<ArrayList<Recipe>> call, Response<ArrayList<Recipe>> response) {
-                buildRcpSuggestions((ArrayList<Recipe>) response.body());
-                Log.d("Full json", new GsonBuilder().setPrettyPrinting().create().toJson(response));
 
-            }
-            
-            @Override
-            public void onFailure(Call<ArrayList<Recipe>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Not so much Luck", Toast.LENGTH_LONG).show();
-                Log.d("Main Activity", "error loading from API" + t);
+
+        getRecipes.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                ingredients = userInput.getText().toString();
+
+                Call<ArrayList<Recipe>> call = service.getRcpSuggestions(ingredients,"jmatuRL9NWmshUs6mTAMdHvR0KQIp1XRQyOjsnLs7dwSK1FRJu");
+
+
+                call.enqueue(new Callback<ArrayList<Recipe>>(){
+                    @Override
+                    public void onResponse(Call<ArrayList<Recipe>> call, Response<ArrayList<Recipe>> response) {
+                        buildRcpSuggestions(response.body());
+                        Log.d("Full json", new GsonBuilder().setPrettyPrinting().create().toJson(response));
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<Recipe>> call, Throwable t) {
+                        Toast.makeText(MainActivity.this, "Not so much Luck", Toast.LENGTH_LONG).show();
+                        Log.d("Main Activity", "error loading from API" + t);
+                    }
+                });
+
             }
         });
 
 
+
+
     }
 
-    private void buildRcpSuggestions(ArrayList<Recipe> recipeList) {
-        recyclerView = findViewById(R.id.recycler_view);
 
-        adapter = new RecipeAdapter(this, recipeList);
+
+
+
+
+    private void buildRcpSuggestions(ArrayList<Recipe> recipeList) {
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+
+        RecipeAdapter adapter = new RecipeAdapter(this, recipeList);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
 
@@ -71,18 +102,5 @@ public class MainActivity extends AppCompatActivity {
 }
 
 
- /*       recipesArray = new ArrayList<>();
-        recipesArray.add(new ProtoRecipe("BLT", R.drawable.airship));
-        recipesArray.add(new ProtoRecipe("Mac and Cheese", R.drawable.airshi));
-        recipesArray.add(new ProtoRecipe("Tacos", R.drawable.sword));
-        recipesArray.add(new ProtoRecipe("Ice Cream", R.drawable.pic2));
 
-        recyclerView = findViewById(R.id.recycler_view);
 
-        adapter= new ProtoAdapter(recipesArray);
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
-
-        recyclerView.setLayoutManager(layoutManager);
-
-        recyclerView.setAdapter(adapter);*/

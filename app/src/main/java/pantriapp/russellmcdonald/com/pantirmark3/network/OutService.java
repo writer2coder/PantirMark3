@@ -7,9 +7,11 @@ import pantriapp.russellmcdonald.com.pantirmark3.model.Recipe;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Query;
 
 public interface OutService {
-    @GET("findByIngredients?fillIngredients=false&ingredients=bacon%2Clettuce%2Ctomato&limitLicense=false&number=5&ranking=")
-    Call<ArrayList<Recipe>> getRcpSuggestions(@Header("X-Mashape-Key") String api_key);
+    @GET("findByIngredients?fillIngredients=")
+    Call<ArrayList<Recipe>> getRcpSuggestions(@Query("ingredients") String userInput,
+                                              @Header("X-Mashape-Key") String api_key);
 
 }

@@ -27,9 +27,11 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         this.recipeList = recipeList;
     }
 
+    @NonNull
     @Override
-    public RecipeViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+    public RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+        LayoutInflater inflater;
+        inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.cv_recipe, parent, false);
         return new RecipeViewHolder(view);
 
@@ -38,9 +40,10 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
     @Override
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
         holder.rcpTitleView.setText(recipeList.get(position).getTitle());
-      /*  Glide.with(context)
+        Glide.with(context)
                 .load(recipeList.get(position).getImage())
-                .into(holder.rcpImageView);*/
+                .placeholder(R.drawable.airship)
+                .into(holder.rcpImageView);
     }
 
     @Override
@@ -56,7 +59,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         RecipeViewHolder(View itemView){
             super(itemView);
             rcpTitleView= itemView.findViewById(R.id.recipe_title);
-            rcpImageView = itemView.findViewById((R.id.image));
+            rcpImageView = itemView.findViewById((R.id.recipe_image));
         }
     }
 

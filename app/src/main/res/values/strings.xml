@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">PantirMark3</string>
+    <string name="app_name">Pantri</string>
+    <string name="input_hint">Put ingredients here</string>
+    <string name="get_recipes">GET</string>
+    <string name="button">get meals</string>
+    <string name="title_activity_pantri_storage">PantriStorage</string>
+    <string name="passwordBox">Enter Password</string>
+    <string name="emailBox">Enter E-mail</string>
+    <string name="sign_up_Box">Sign up!</string>
+    <string name="log_in_button">Log in</string>
 </resources>
