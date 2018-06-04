@@ -38,6 +38,8 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:support-annotations:24.1.1'
     implementation 'com.android.support:design:27.1.1'
+    implementation 'com.shawnlin:number-picker:2.4.6'
+
 
 
     //for web services

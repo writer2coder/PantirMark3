@@ -8,4 +8,9 @@
     <string name="emailBox">Enter E-mail</string>
     <string name="sign_up_Box">Sign up!</string>
     <string name="log_in_button">Log in</string>
+    <string name="item_name" />
+    <string name="item_label">Item Type</string>
+    <string name="count_label">boxes, lbs, etc</string>
+    <string name="amount_label">Amount</string>
+
 </resources>
