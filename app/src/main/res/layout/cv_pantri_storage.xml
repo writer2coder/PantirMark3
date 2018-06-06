@@ -1,6 +1,5 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     card_view:cardCornerRadius="6dp"
@@ -9,35 +8,42 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="276dp"
-        android:layout_height="108dp">
+        android:layout_height="169dp">
 
 
-        <TextView
+        <EditText
             android:id="@+id/item_name"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:inputType="text"
             android:text="@string/item_name"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toStartOf="@+id/count"
             card_view:layout_constraintHorizontal_chainStyle="packed"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.114" />
+            card_view:layout_constraintVertical_bias="0.402" />
 
 
-        <TextView
+        <EditText
             android:id="@+id/amount_view"
-            android:layout_width="61dp"
-            android:layout_height="33dp"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
+            android:inputType="text"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toEndOf="@+id/count"
             card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.238" />
+            card_view:layout_constraintVertical_bias="0.406" />
 
         <TextView
             android:layout_width="47dp"
@@ -48,21 +54,23 @@
             android:layout_marginTop="8dp"
             android:labelFor="@+id/label_item"
             android:text="@string/item_label"
+            android:textAlignment="center"
             android:textSize="8sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="@+id/item_name"
             card_view:layout_constraintHorizontal_bias="0.529"
             card_view:layout_constraintStart_toStartOf="@+id/item_name"
             card_view:layout_constraintTop_toBottomOf="@+id/item_name"
-            card_view:layout_constraintVertical_bias="0.384" />
+            card_view:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:layout_width="38dp"
             android:layout_height="16dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="56dp"
             android:layout_marginStart="8dp"
             android:labelFor="@+id/amount_view"
             android:text="@string/amount_label"
+            android:textAlignment="center"
             android:textSize="8sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="@+id/count"
@@ -77,27 +85,28 @@
             android:layout_marginTop="8dp"
             android:labelFor="@+id/amount_view"
             android:text="@string/count_label"
+            android:textAlignment="center"
             android:textSize="8sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="@+id/amount_view"
-            card_view:layout_constraintHorizontal_bias="0.0"
+            card_view:layout_constraintHorizontal_bias="0.315"
             card_view:layout_constraintStart_toStartOf="@+id/amount_view"
             card_view:layout_constraintTop_toBottomOf="@+id/amount_view"
-            card_view:layout_constraintVertical_bias="1.0" />
+            card_view:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/count"
-            android:layout_width="54dp"
-            android:layout_height="28dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginStart="24dp"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:ems="10"
             android:inputType="number"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toStartOf="@+id/amount_view"
             card_view:layout_constraintStart_toEndOf="@+id/item_name"
             card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.2" />
+            card_view:layout_constraintVertical_bias="0.417" />
 
     </android.support.constraint.ConstraintLayout>
 

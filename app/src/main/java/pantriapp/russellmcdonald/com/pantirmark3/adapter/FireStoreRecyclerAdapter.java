@@ -6,23 +6,29 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 
+
+
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
 import java.util.ArrayList;
 
 import pantriapp.russellmcdonald.com.pantirmark3.R;
+import pantriapp.russellmcdonald.com.pantirmark3.activity.PantriStorage;
 import pantriapp.russellmcdonald.com.pantirmark3.model.PantriModel;
 
 public class FireStoreRecyclerAdapter extends RecyclerView.Adapter<FireStoreRecyclerAdapter.FireStoreViewHolder> {
-    private ArrayList<PantriModel> pantriStorage;
+    private ArrayList<PantriModel> pantriList;
     private Context context;
-    private FirebaseFirestore fireDB;
 
 
+    public FireStoreRecyclerAdapter(ArrayList<PantriModel> pantriList, Context context) {
+        this.pantriList = pantriList;
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -35,30 +41,21 @@ public class FireStoreRecyclerAdapter extends RecyclerView.Adapter<FireStoreRecy
 
     @Override
     public void onBindViewHolder(@NonNull FireStoreRecyclerAdapter.FireStoreViewHolder holder, int position) {
-        holder.itemName.setText(pantriStorage.get(position).getItem());
-        holder.count.setText(pantriStorage.get(position).getItemCount());
-        holder.amountType.setText(pantriStorage.get(position).getItemCount());
+        holder.itemName.setText(pantriList.get(position).getItem());
+        holder.count.setText(String.valueOf(pantriList.get(position)));
+        holder.amountType.setText(pantriList.get(position).getAmount());
     }
 
     @Override
     public int getItemCount() {
-        return pantriStorage.size();
-    }
+        return pantriList.size();
+        }
 
-    public FireStoreRecyclerAdapter(ArrayList<PantriModel> pantriStorage, Context context, FirebaseFirestore fireDB) {
-        this.pantriStorage = pantriStorage;
-        this.context = context;
-        this.fireDB = fireDB;
-    }
 
-    public FireStoreRecyclerAdapter() {
-    }
-
-    //FireStoreRecyclerAdapter<PantriModel> storageOptions = new FireStoreRecyclerOptions.builder<PantriModel>()
-    class FireStoreViewHolder extends RecyclerView.ViewHolder{
+    public class FireStoreViewHolder extends RecyclerView.ViewHolder{
         EditText itemName;
         EditText amountType;
-        Button count;
+        EditText count;
 
         FireStoreViewHolder(View itemView){
             super(itemView);

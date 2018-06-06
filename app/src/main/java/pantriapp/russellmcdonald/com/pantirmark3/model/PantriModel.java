@@ -22,6 +22,7 @@ public class PantriModel {
     public int itemCount;
     public String amount;
     public String userID;
+    private String ID;
 
     public PantriModel(String item, int itemCount, String amount, String userID) {
         this.item = item;
@@ -63,6 +64,10 @@ public class PantriModel {
 
     public void setUserID(String userID) {
         this.userID = userID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }
 

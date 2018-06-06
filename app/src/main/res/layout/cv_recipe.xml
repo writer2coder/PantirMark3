@@ -14,19 +14,16 @@
     android:orientation="vertical"
     android:padding="5dp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recipe_image"
-            android:adjustViewBounds="true"
-
-            />
-
         <TextView
             android:id="@+id/recipe_title"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-
+            android:layout_height="146dp"
+            />
+        <ImageView
+            android:id="@+id/recipe_image"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:adjustViewBounds="true"
             />
 
     </LinearLayout>

@@ -7,8 +7,60 @@
     tools:context=".activity.PantriStorage">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view_pantri"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="386dp"
+        android:layout_above="@+id/to_recipes_button"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/to_recipes_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        tools:text="@string/storage_nav_button" />
+
+    <Button
+        android:id="@+id/add_item_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp"
+        tools:text="@string/add_item_button" />
+
+    <EditText
+        android:id="@+id/add_item_box"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/add_item_button"
+        android:layout_marginTop="19dp"
+        android:textSize="12sp"
+        tools:hint="@string/add_item_hint" />
+
+    <EditText
+        android:id="@+id/add_count_box"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/add_item_box"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:hint="@string/add_count_hint"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/add_type_box"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:layout_alignEnd="@+id/to_recipes_button"
+        android:layout_alignTop="@+id/add_item_box"
+        android:hint="@string/add_type_hint"
+        android:textSize="12sp" />
 
 </RelativeLayout>
