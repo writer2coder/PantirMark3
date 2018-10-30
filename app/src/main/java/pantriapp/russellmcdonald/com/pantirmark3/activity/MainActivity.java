@@ -71,18 +71,3 @@ public class MainActivity extends AppCompatActivity {
 }
 
 
- /*       recipesArray = new ArrayList<>();
-        recipesArray.add(new ProtoRecipe("BLT", R.drawable.airship));
-        recipesArray.add(new ProtoRecipe("Mac and Cheese", R.drawable.airshi));
-        recipesArray.add(new ProtoRecipe("Tacos", R.drawable.sword));
-        recipesArray.add(new ProtoRecipe("Ice Cream", R.drawable.pic2));
-
-        recyclerView = findViewById(R.id.recycler_view);
-
-        adapter= new ProtoAdapter(recipesArray);
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
-
-        recyclerView.setLayoutManager(layoutManager);
-
-        recyclerView.setAdapter(adapter);*/
